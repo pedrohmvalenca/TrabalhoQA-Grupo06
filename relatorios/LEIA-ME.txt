@@ -1,0 +1,2 @@
+Os arquivos desta pasta são criados quando o main.py roda.
+Para começar do zero, apague os .html e .csv.

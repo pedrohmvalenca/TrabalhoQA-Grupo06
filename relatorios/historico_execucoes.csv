@@ -1,0 +1,2 @@
+﻿Data/Hora;Cenário;Testes executados;Aprovados;Reprovados;Taxa de aprovação (%);Falhas críticas;Decisão de QA;Testes reprovados
+05/10/2026 20:48:42;Sistema original (sem bug);12;12;0;100,0;0;LIBERADO;nenhum

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Relatório de QA - Bilheteria de Cinema</title>
+<style>
+  body { font-family: Arial, sans-serif; background-color: #eeeeee; color: #222222; margin: 20px; }
+  table { border-collapse: collapse; width: 100%; background-color: #ffffff; margin-bottom: 15px; }
+  th, td { border: 1px solid #cccccc; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background-color: #dddddd; }
+  small { display: block; color: #666666; }
+  .decisao { padding: 5px 20px; color: #ffffff; }
+  .selo { padding: 2px 8px; color: #ffffff; font-weight: bold; }
+  .pass, .liberado { background-color: #1a7648; }
+  .fail, .nao-liberar, .critica { background-color: #b0251d; }
+  .ressalvas { background-color: #8f5600; }
+  .alta { background-color: #d9534f; }
+  .media { background-color: #d08c00; }
+  .baixa { background-color: #777777; }
+  .falhou { background-color: #fbe7e5; }
+  .mudou { background-color: #fbf0d9; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Relatório de qualidade</h1>
+<table>
+<tr><th>Sistema testado</th><td>Bilheteria de Cinema</td></tr>
+<tr><th>Cenário</th><td>Sistema original (sem bug)</td></tr>
+<tr><th>Execução dos testes</th><td>05/10/2026 20:48:42</td></tr>
+<tr><th>Equipe</th><td>Pedro Valença, Jorge Antônio, Nicolas Tavares, Ygor Sampaio e Davi Felipe</td></tr>
+</table>
+
+<div class="decisao liberado">
+  <p>Decisão final de QA</p>
+  <h2>LIBERADO</h2>
+  <p>Todos os testes passaram.</p>
+</div>
+
+<p>
+  Este relatório é gerado automaticamente a cada execução dos testes. Ele mostra quais regras
+  de negócio foram testadas, o que passou, o que falhou, quais defeitos apareceram e se esta
+  versão do sistema pode ser liberada.
+</p>
+
+<table>
+<tr><th>Testes executados</th><th>Aprovados (PASS)</th><th>Reprovados (FAIL)</th><th>Taxa de aprovação</th><th>Falhas críticas</th></tr>
+<tr><td>12</td><td>12</td><td>0</td><td>100,0%</td><td>0</td></tr>
+</table>
+
+
+
+<h2>Defeitos encontrados</h2>
+<p>Nenhum defeito encontrado: todos os testes tiveram o resultado esperado.</p>
+
+<h2>Regras de negócio testadas</h2>
+<table>
+<tr><th>Requisito</th><th>Regra de negócio</th><th>Testes</th><th>Aprovados</th><th>Reprovados</th><th>Situação</th></tr>
+<tr><td>RF01</td><td><b>Venda de ingresso</b><small>Um assento livre e existente na sala pode ser vendido. Depois da venda, o assento fica ocupado.</small></td><td>2</td><td>2</td><td>0</td><td><span class="selo pass">Sem defeitos</span></td></tr>
+<tr><td>RF02</td><td><b>Assento único</b><small>Um assento já vendido não pode ser vendido novamente na mesma sessão.</small></td><td>2</td><td>2</td><td>0</td><td><span class="selo pass">Sem defeitos</span></td></tr>
+<tr><td>RF03</td><td><b>Meia-entrada</b><small>Estudantes e idosos (60 anos ou mais) pagam 50% do valor do ingresso.</small></td><td>3</td><td>3</td><td>0</td><td><span class="selo pass">Sem defeitos</span></td></tr>
+<tr><td>RF04</td><td><b>Classificação indicativa</b><small>O cliente só compra o ingresso se tiver a idade mínima indicada para o filme.</small></td><td>3</td><td>3</td><td>0</td><td><span class="selo pass">Sem defeitos</span></td></tr>
+<tr><td>RF05</td><td><b>Cancelamento</b><small>Um ingresso vendido pode ser cancelado, e o assento volta a ficar livre.</small></td><td>2</td><td>2</td><td>0</td><td><span class="selo pass">Sem defeitos</span></td></tr>
+
+</table>
+
+<h2>Casos de teste executados</h2>
+<table>
+<tr><th>Teste</th><th>Requisito</th><th>O que o teste faz</th><th>Resultado esperado</th><th>Resultado obtido</th><th>Situação</th><th>Severidade</th></tr>
+<tr id="CT01"><td>CT01</td><td>RF01</td><td>Vender ingresso para um assento livre<small>Cenário normal</small></td><td>Ingresso emitido; assento A1 ocupado</td><td>Ingresso emitido; assento A1 ocupado</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT02"><td>CT02</td><td>RF01</td><td>Tentar vender um assento que não existe na sala<small>Cenário de erro</small></td><td>Recusado: assento inexistente</td><td>Recusado: assento inexistente</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT03"><td>CT03</td><td>RF02</td><td>Vender dois assentos diferentes na mesma sessão<small>Cenário normal</small></td><td>2 ingressos emitidos</td><td>2 ingressos emitidos</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT04"><td>CT04</td><td>RF02</td><td>Tentar vender o mesmo assento pela segunda vez<small>Cenário de erro</small></td><td>Recusado: assento já vendido</td><td>Recusado: assento já vendido</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT05"><td>CT05</td><td>RF03</td><td>Adulto sem benefício paga o ingresso inteiro<small>Cenário normal</small></td><td>Preço cobrado: R$ 30,00</td><td>Preço cobrado: R$ 30,00</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT06"><td>CT06</td><td>RF03</td><td>Estudante paga meia-entrada<small>Cenário normal</small></td><td>Preço cobrado: R$ 15,00</td><td>Preço cobrado: R$ 15,00</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT07"><td>CT07</td><td>RF03</td><td>Cliente com exatamente 60 anos paga meia-entrada<small>Valor limite</small></td><td>Preço cobrado: R$ 15,00</td><td>Preço cobrado: R$ 15,00</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT08"><td>CT08</td><td>RF04</td><td>Cliente de 18 anos compra ingresso de filme 16 anos<small>Cenário normal</small></td><td>Ingresso emitido</td><td>Ingresso emitido</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT09"><td>CT09</td><td>RF04</td><td>Cliente de 15 anos tenta comprar ingresso de filme 16 anos<small>Cenário de erro</small></td><td>Recusado: idade abaixo da classificação indicativa</td><td>Recusado: idade abaixo da classificação indicativa</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT10"><td>CT10</td><td>RF04</td><td>Cliente com exatamente 16 anos compra filme 16 anos<small>Valor limite</small></td><td>Ingresso emitido</td><td>Ingresso emitido</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT11"><td>CT11</td><td>RF05</td><td>Cancelar um ingresso e conferir se o assento foi liberado<small>Cenário normal</small></td><td>Ingresso cancelado; assento A1 livre</td><td>Ingresso cancelado; assento A1 livre</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+<tr id="CT12"><td>CT12</td><td>RF05</td><td>Tentar cancelar um ingresso que não existe<small>Cenário de erro</small></td><td>Recusado: ingresso não encontrado</td><td>Recusado: ingresso não encontrado</td><td><span class="selo pass">PASS</span></td><td>-</td></tr>
+
+</table>
+
+<h2>Como a decisão é tomada</h2>
+<table>
+<tr><th>Decisão</th><th>Quando acontece</th></tr>
+<tr><td><span class="selo liberado">LIBERADO</span></td><td>Nenhum teste falhou.</td></tr>
+<tr><td><span class="selo ressalvas">LIBERADO COM RESSALVAS</span></td><td>Houve falhas, mas nenhuma de severidade crítica.</td></tr>
+<tr><td><span class="selo nao-liberar">NÃO LIBERAR</span></td><td>Pelo menos uma falha de severidade crítica.</td></tr>
+</table>
+
+<table>
+<tr><th>Severidade</th><th>O que significa</th></tr>
+<tr><td><span class="selo critica">CRÍTICA</span></td><td>Prejuízo grave ou problema legal. Impede a liberação.</td></tr>
+<tr><td><span class="selo alta">ALTA</span></td><td>Função importante com resultado errado.</td></tr>
+<tr><td><span class="selo media">MÉDIA</span></td><td>Erro que só aparece em uma situação específica.</td></tr>
+<tr><td><span class="selo baixa">BAIXA</span></td><td>Problema pequeno, fácil de contornar.</td></tr>
+</table>
+
+<p>Gerado automaticamente por main.py em 05/10/2026 20:48:42.</p>
+
+</body>
+</html>

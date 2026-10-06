@@ -1,0 +1,16 @@
+[
+  {
+    "id": "S1",
+    "filme": "Aventura no Espaço",
+    "classificacao": 0,
+    "preco": 30.0,
+    "assentos": ["A1", "A2", "A3", "A4", "A5"]
+  },
+  {
+    "id": "S2",
+    "filme": "Noite do Terror",
+    "classificacao": 16,
+    "preco": 30.0,
+    "assentos": ["A1", "A2", "A3", "A4", "A5"]
+  }
+]

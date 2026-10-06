@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Relatório de QA - $sistema</title>
+<style>
+  body { font-family: Arial, sans-serif; background-color: #eeeeee; color: #222222; margin: 20px; }
+  table { border-collapse: collapse; width: 100%; background-color: #ffffff; margin-bottom: 15px; }
+  th, td { border: 1px solid #cccccc; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background-color: #dddddd; }
+  small { display: block; color: #666666; }
+  .decisao { padding: 5px 20px; color: #ffffff; }
+  .selo { padding: 2px 8px; color: #ffffff; font-weight: bold; }
+  .pass, .liberado { background-color: #1a7648; }
+  .fail, .nao-liberar, .critica { background-color: #b0251d; }
+  .ressalvas { background-color: #8f5600; }
+  .alta { background-color: #d9534f; }
+  .media { background-color: #d08c00; }
+  .baixa { background-color: #777777; }
+  .falhou { background-color: #fbe7e5; }
+  .mudou { background-color: #fbf0d9; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Relatório de qualidade</h1>
+<table>
+<tr><th>Sistema testado</th><td>$sistema</td></tr>
+<tr><th>Cenário</th><td>$cenario</td></tr>
+<tr><th>Execução dos testes</th><td>$data_hora</td></tr>
+$equipe
+</table>
+
+<div class="decisao $classe_decisao">
+  <p>Decisão final de QA</p>
+  <h2>$decisao</h2>
+  <p>$motivo</p>
+</div>
+
+<p>
+  Este relatório é gerado automaticamente a cada execução dos testes. Ele mostra quais regras
+  de negócio foram testadas, o que passou, o que falhou, quais defeitos apareceram e se esta
+  versão do sistema pode ser liberada.
+</p>
+
+<table>
+<tr><th>Testes executados</th><th>Aprovados (PASS)</th><th>Reprovados (FAIL)</th><th>Taxa de aprovação</th><th>Falhas críticas</th></tr>
+<tr><td>$total</td><td>$aprovados</td><td>$reprovados</td><td>$taxa%</td><td>$criticas</td></tr>
+</table>
+
+$comparacao
+
+<h2>Defeitos encontrados</h2>
+$defeitos
+
+<h2>Regras de negócio testadas</h2>
+<table>
+<tr><th>Requisito</th><th>Regra de negócio</th><th>Testes</th><th>Aprovados</th><th>Reprovados</th><th>Situação</th></tr>
+$requisitos
+</table>
+
+<h2>Casos de teste executados</h2>
+<table>
+<tr><th>Teste</th><th>Requisito</th><th>O que o teste faz</th><th>Resultado esperado</th><th>Resultado obtido</th><th>Situação</th><th>Severidade</th></tr>
+$testes
+</table>
+
+<h2>Como a decisão é tomada</h2>
+<table>
+<tr><th>Decisão</th><th>Quando acontece</th></tr>
+<tr><td><span class="selo liberado">LIBERADO</span></td><td>Nenhum teste falhou.</td></tr>
+<tr><td><span class="selo ressalvas">LIBERADO COM RESSALVAS</span></td><td>Houve falhas, mas nenhuma de severidade crítica.</td></tr>
+<tr><td><span class="selo nao-liberar">NÃO LIBERAR</span></td><td>Pelo menos uma falha de severidade crítica.</td></tr>
+</table>
+
+<table>
+<tr><th>Severidade</th><th>O que significa</th></tr>
+<tr><td><span class="selo critica">CRÍTICA</span></td><td>Prejuízo grave ou problema legal. Impede a liberação.</td></tr>
+<tr><td><span class="selo alta">ALTA</span></td><td>Função importante com resultado errado.</td></tr>
+<tr><td><span class="selo media">MÉDIA</span></td><td>Erro que só aparece em uma situação específica.</td></tr>
+<tr><td><span class="selo baixa">BAIXA</span></td><td>Problema pequeno, fácil de contornar.</td></tr>
+</table>
+
+<p>Gerado automaticamente por main.py em $data_hora.</p>
+
+</body>
+</html>

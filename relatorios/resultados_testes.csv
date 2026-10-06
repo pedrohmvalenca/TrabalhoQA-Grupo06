@@ -1,0 +1,13 @@
+﻿ID;Requisito;Tipo de cenário;Descrição;Resultado esperado;Resultado obtido;Situação;Severidade;Data/Hora;Cenário
+CT01;RF01;Cenário normal;Vender ingresso para um assento livre;"Ingresso emitido; assento A1 ocupado";"Ingresso emitido; assento A1 ocupado";PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT02;RF01;Cenário de erro;Tentar vender um assento que não existe na sala;Recusado: assento inexistente;Recusado: assento inexistente;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT03;RF02;Cenário normal;Vender dois assentos diferentes na mesma sessão;2 ingressos emitidos;2 ingressos emitidos;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT04;RF02;Cenário de erro;Tentar vender o mesmo assento pela segunda vez;Recusado: assento já vendido;Recusado: assento já vendido;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT05;RF03;Cenário normal;Adulto sem benefício paga o ingresso inteiro;Preço cobrado: R$ 30,00;Preço cobrado: R$ 30,00;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT06;RF03;Cenário normal;Estudante paga meia-entrada;Preço cobrado: R$ 15,00;Preço cobrado: R$ 15,00;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT07;RF03;Valor limite;Cliente com exatamente 60 anos paga meia-entrada;Preço cobrado: R$ 15,00;Preço cobrado: R$ 15,00;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT08;RF04;Cenário normal;Cliente de 18 anos compra ingresso de filme 16 anos;Ingresso emitido;Ingresso emitido;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT09;RF04;Cenário de erro;Cliente de 15 anos tenta comprar ingresso de filme 16 anos;Recusado: idade abaixo da classificação indicativa;Recusado: idade abaixo da classificação indicativa;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT10;RF04;Valor limite;Cliente com exatamente 16 anos compra filme 16 anos;Ingresso emitido;Ingresso emitido;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT11;RF05;Cenário normal;Cancelar um ingresso e conferir se o assento foi liberado;"Ingresso cancelado; assento A1 livre";"Ingresso cancelado; assento A1 livre";PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)
+CT12;RF05;Cenário de erro;Tentar cancelar um ingresso que não existe;Recusado: ingresso não encontrado;Recusado: ingresso não encontrado;PASS;-;05/10/2026 20:48:42;Sistema original (sem bug)

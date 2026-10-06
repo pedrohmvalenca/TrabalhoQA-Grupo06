@@ -1,0 +1,27 @@
+[
+  {
+    "id": "RF01",
+    "nome": "Venda de ingresso",
+    "regra": "Um assento livre e existente na sala pode ser vendido. Depois da venda, o assento fica ocupado."
+  },
+  {
+    "id": "RF02",
+    "nome": "Assento único",
+    "regra": "Um assento já vendido não pode ser vendido novamente na mesma sessão."
+  },
+  {
+    "id": "RF03",
+    "nome": "Meia-entrada",
+    "regra": "Estudantes e idosos (60 anos ou mais) pagam 50% do valor do ingresso."
+  },
+  {
+    "id": "RF04",
+    "nome": "Classificação indicativa",
+    "regra": "O cliente só compra o ingresso se tiver a idade mínima indicada para o filme."
+  },
+  {
+    "id": "RF05",
+    "nome": "Cancelamento",
+    "regra": "Um ingresso vendido pode ser cancelado, e o assento volta a ficar livre."
+  }
+]
